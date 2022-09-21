@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "f3e5f894-2b45-497a-9528-e567fccda316",
+		"name": "ContactAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7239944"
+	},
+	"item": [
+		{
+			"name": "api/contacts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/contacts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"contacts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/contacts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 4,\n        \"name\": \"SC\",\n        \"mail\": \"sc@htl-kaindorf.at\",\n        \"age\": 42,\n        \"hobbies\": [],\n        \"address\": {\n            \"postalcode\": \"8430\",\n            \"street\": \"Grazerstrasse\",\n            \"number\": \"202\"\n        }\n    },\n    {\n        \"id\": 5,\n        \"name\": \"LB\",\n        \"mail\": \"lb@htl-kaindorf.at\",\n        \"age\": 35,\n        \"hobbies\": [\n            \"hiking\",\n            \"tennis\",\n            \"KSP\",\n            \"Soccer\"\n        ],\n        \"address\": {\n            \"postalcode\": \"8430\",\n            \"street\": \"Grazerstrasse\",\n            \"number\": \"202\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "api/contacts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/contacts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"contacts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/contacts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "api/contacts/5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var schema = {\r",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"id\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"name\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"mail\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"age\": {\r",
+							"      \"type\": \"number\"\r",
+							"    },\r",
+							"    \"hobbies\": {\r",
+							"      \"type\": \"array\",\r",
+							"      \"items\": {\r",
+							"          \"type\": \"string\"\r",
+							"      }\r",
+							"    },\r",
+							"    \"address\": {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"postalcode\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"street\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"number\": {\r",
+							"          \"type\": \"string\"\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"postalcode\",\r",
+							"        \"street\",\r",
+							"        \"number\"\r",
+							"      ]\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"id\",\r",
+							"    \"name\",\r",
+							"    \"mail\",\r",
+							"    \"age\",\r",
+							"    \"hobbies\",\r",
+							"    \"address\"\r",
+							"  ]\r",
+							"};\r",
+							"\r",
+							"var data = pm.response.json();\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(tv4.validate(data, schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/contacts/5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"contacts",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/contacts/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"5"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"name\": \"LB\",\n    \"mail\": \"lb@htl-kaindorf.at\",\n    \"age\": 35,\n    \"hobbies\": [\n        \"hiking\",\n        \"tennis\",\n        \"KSP\",\n        \"Soccer\"\n    ],\n    \"address\": {\n        \"postalcode\": \"8430\",\n        \"street\": \"Grazerstrasse\",\n        \"number\": \"202\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "api/contacts/789",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/contacts/789",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"contacts",
+						"789"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/contacts/789",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"789"
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "api/contacts/5",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/contacts/5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"contacts",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "api/contacts/5",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/contacts/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"5"
+							]
+						}
+					},
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://0afa4e09-2ead-41a8-8576-570505acdc3e.mock.pstmn.io"
+		}
+	]
+}
